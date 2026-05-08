@@ -5,3 +5,5 @@ uploaded_files/
 tst.ipynb
 a.ipynb
 env/
+.env
+.venv/
