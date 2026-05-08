@@ -1,0 +1,14 @@
+.cardHeight {
+  .ant-card-body {
+    height: 500px;
+  }
+}
+.calendar-card {
+  .ant-card-body {
+    padding: 0px;
+  }
+  :where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-calendar .ant-picker-cell-in-view.ant-picker-cell-selected:not(.ant-picker-cell-disabled) .ant-picker-cell-inner, :where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-calendar .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-disabled) .ant-picker-cell-inner, :where(.css-dev-only-do-not-override-1uq9j6g).ant-picker-calendar .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-disabled) .ant-picker-cell-inner{
+    color: black;
+    background-color: #fff;
+  }
+}

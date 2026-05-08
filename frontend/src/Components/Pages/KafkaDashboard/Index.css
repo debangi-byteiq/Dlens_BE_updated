@@ -1,0 +1,79 @@
+.sql-text {
+    color: #7d8fb3 !important;
+  }
+  .back-btn {
+    font-size: 14px;
+    cursor: pointer;
+    margin: 10px auto;
+    display: flex;
+    color: #7d8fb3 !important;
+  }
+  .radio-button {
+    border-radius: 8px;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .radio-button:hover {
+    border: 1px solid #204496;
+  }
+  
+  .radio-group .ant-radio-wrapper .ant-radio {
+    padding: 12px !important;
+  }
+  
+  .radio-heading {
+    font-weight: 700;
+  }
+  
+  .radio-text {
+    font-weight: 400;
+    color: #8d8d8d;
+  }
+  
+  .radio-button:hover .radio-text {
+    color: #204496;
+  }
+  .radio-button:hover .radio-heading {
+    color: #204496;
+  }
+  .sql-card {
+    margin-top: 20px;
+  }
+  .ip-card {
+    margin-top: 20px;
+    background-color: #ddeaff;
+  }
+  .sql-btn {
+    height: 40px;
+    margin-top: 20px;
+    background-color: #576cc4 !important;
+  }
+  
+  .sql-btn:hover {
+    color: white;
+  }
+  
+  .right-image {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+  :where(.css-dev-only-do-not-override-1uq9j6g).ant-form-vertical
+    .ant-form-item:not(.ant-form-item-horizontal)
+    .ant-form-item-label
+    > label,
+  :where(.css-dev-only-do-not-override-1uq9j6g).ant-form-vertical
+    .ant-form-item:not(.ant-form-item-horizontal)
+    .ant-col-24.ant-form-item-label
+    > label,
+  :where(.css-dev-only-do-not-override-1uq9j6g).ant-form-vertical
+    .ant-form-item:not(.ant-form-item-horizontal)
+    .ant-col-xl-24.ant-form-item-label
+    > label {
+    font-weight: 600;
+  }
+  

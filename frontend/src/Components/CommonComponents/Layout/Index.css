@@ -1,0 +1,10 @@
+.content {
+  margin-left: 70px;
+  /* background-color: #F0F4F7; */
+  background-color: #eff1f6;
+  overflow-y: auto;
+}
+.ant-layout {
+  min-height: 100vh;
+  overflow-x: hidden;
+}

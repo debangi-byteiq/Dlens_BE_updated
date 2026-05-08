@@ -1,0 +1,20 @@
+.chartCard {
+    .ant-card-body{
+        height: 350px;
+      }
+}
+.radialCard{
+    .ant-card-body{
+        height: 350px;
+      }
+}
+.tableCard {
+    .ant-card-body{
+        padding: 12px !important;
+    }
+}
+.calendarCard{
+    .ant-card-body{
+        height: 400px;
+      }
+}

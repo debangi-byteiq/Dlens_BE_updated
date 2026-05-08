@@ -1,0 +1,94 @@
+.sql-text {
+  color: #0000FF !important;
+}
+.back-btn {
+  font-size: 18px;
+  cursor: pointer;
+  margin: 10px auto;
+  display: flex;
+  color: #0000FF !important;
+}
+.sql-card .radio-button {
+  border-radius: 8px;
+  border: 1px solid #d9d9d9;
+  margin-bottom: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.sql-card .radio-button:hover {
+  border: 1px solid #71B5FF;
+}
+
+.sql-card .radio-group .ant-radio-wrapper .ant-radio {
+  padding: 12px !important;
+}
+
+.sql-card .radio-heading {
+  font-weight: 700;
+}
+
+.sql-card .radio-text {
+  font-weight: 400;
+  color: #8d8d8d;
+}
+
+.sql-card .radio-button:hover .radio-text {
+  color: #71B5FF;
+}
+.sql-card .radio-button:hover .radio-heading {
+  color: #71B5FF;
+}
+.sql-card {
+  margin-top: 20px;
+  height: auto;
+}
+
+.sql-btn {
+  height: 40px;
+  color: white;
+  margin-top: 20px;
+  background-color: #0000FF !important;
+}
+
+.right-image {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-form-vertical
+  .ant-form-item:not(.ant-form-item-horizontal)
+  .ant-form-item-label
+  > label,
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-form-vertical
+  .ant-form-item:not(.ant-form-item-horizontal)
+  .ant-col-24.ant-form-item-label
+  > label,
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-form-vertical
+  .ant-form-item:not(.ant-form-item-horizontal)
+  .ant-col-xl-24.ant-form-item-label
+  > label {
+  font-weight: 600;
+}
+/* .ant-Modal .ant-modal .ant-modal-content {
+  background-color: #fff6f6 !important;
+  padding: "12px 24px" !important;
+} */
+
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-modal .ant-modal-title {
+  background-color: #fff6f6 !important;
+}
+:where(.css-dev-only-do-not-override-1uq9j6g).ant-modal .ant-modal-content {
+  background-color: #fff6f6 !important;
+  padding: "12px 24px" !important;
+}
+.sql-dashboard {
+  .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+    color: #fff !important; 
+  }
+}
+:where(.css-dev-only-do-not-override-1v613y0).ant-btn-variant-outlined:not(:disabled):not(.ant-btn-disabled):hover, :where(.css-dev-only-do-not-override-1v613y0).ant-btn-variant-dashed:not(:disabled):not(.ant-btn-disabled):hover {
+    
+    background: #ffffff;
+}

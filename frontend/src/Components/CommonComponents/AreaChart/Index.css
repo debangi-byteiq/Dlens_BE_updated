@@ -1,0 +1,61 @@
+.toolbar {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.toolbar button {
+  margin-right: 10px;
+}
+
+.toolbar .active {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.chartContainer1 .toolbar .active {
+  background-color: #0096ff;
+  color: #fff;
+}
+
+.chartContainer2 .toolbar .active {
+  background-color: #204496;
+  color: #fff;
+}
+.chartContainer3 .toolbar .active {
+  background-color: #00c247;
+  color: #fff;
+}
+.chartContainer4 .toolbar .active {
+  background-color: #ea4648;
+  color: #fff;
+}
+.chartContainer1 {
+  .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover{
+    background-color: #fff;
+    color: #0096ff;
+    border-color: #0096ff;
+  }
+}
+.chartContainer2 {
+  .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover{
+    background-color: #fff;
+    color: #204496;
+    border-color: #204496;
+  }
+}
+.chartContainer3 {
+  .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover{
+    background-color: #fff;
+    color: #00c247;
+    border-color: #00c247;
+  }
+}
+.chartContainer4 {
+  .ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover{
+    background-color: #fff;
+    color: #ea4648;
+    border-color: #ea4648;
+  }
+}

@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* color: "#fff"; */
+}
+
+.source-card .ant-card .ant-card-body {
+  padding: 14px 25px !important;
+  transition: all 0.3s ease;
+}
+
+.source-image {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.source-text {
+  /* color: #fff; */
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+}
+.expanded-content {
+  margin: 20px auto;
+  cursor: pointer !important;
+}
+.thick-underline {
+  font-weight: 700;
+  display: inline-block;
+  border-bottom: 1px solid #536a85;
+  margin: 20px 0;
+}
+
+.dashed-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #285180;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dashed-card .source-text {
+  color: #285180;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.ant-radio-checked .ant-radio-inner {
+  background-color: blue !important; /* blue dot */
+  border-color: blue !important; /* blue circle */
+}
+
+.ant-radio-checked:hover .ant-radio-inner {
+  border-color: blue !important; /* blue border on hover */
+}
+
+.ant-radio-checked::after {
+  border: 2px solid blue !important; /* blue outline */
+}
+

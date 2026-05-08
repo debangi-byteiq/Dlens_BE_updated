@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.heading-container {
+  display: flex;
+  font-weight: 100;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.heading-container::before,
+.heading-container::after {
+  content: "";
+  flex: 1;
+  border-bottom: 2px solid #2b2b2c;
+  margin: 0 10px;
+}
+.highlighted-row {
+  cursor: pointer;
+  background-color: #c9cff0;
+}
+.text-overflow-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  cursor: pointer;
+}
+
+.my-table {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.my-table::-webkit-scrollbar {
+  display: none;
+}

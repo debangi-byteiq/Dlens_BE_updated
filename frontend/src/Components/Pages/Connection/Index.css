@@ -1,0 +1,96 @@
+/* 
+.react-flow__background {
+  position: absolute !important;
+}
+
+.react-flow__connection-path {
+  cursor: not-allowed !important;
+} */
+/* Connections.css */
+
+.connections-container {
+  background-image: url(../../../assets/Images/homeBG.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.connections-row {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.empty-col {
+  flex: 1;
+}
+
+.connections-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 100px;
+  color: rgb(23, 19, 86);
+}
+
+.connection-title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.connection-subtitle {
+  text-align: center;
+  font-size: 1.3rem;
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.connection-wrapper {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.btn-primary {
+  background-color: #285180;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  /* display: inline-block; */
+  /* text-decoration: none; */
+}
+
+.btn-link {
+  margin-top: 20px;
+  /* text-decoration: none; */
+  font-size: 1rem;
+}
+.add-icon{
+  width: 200;
+}

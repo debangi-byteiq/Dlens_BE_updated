@@ -1,0 +1,29 @@
+# Web API
+fastapi==0.115.0
+uvicorn[standard]==0.31.0
+python-multipart==0.0.12
+python-dotenv==1.0.1
+
+# Validation and auth
+pydantic[email]==2.9.2
+passlib[bcrypt]==1.7.4
+PyJWT==2.9.0
+
+# Databases
+SQLAlchemy==2.0.34
+psycopg2-binary==2.9.10
+motor==3.7.1
+mysql-connector-python==9.0.0
+
+# Email/templates
+fastapi-mail==1.4.1
+Jinja2==3.1.4
+
+# Data processing
+numpy==1.26.4
+pandas==2.2.3
+pyspark==3.4.4
+python-dateutil==2.9.0.post0
+
+# HTTP utilities
+requests==2.32.3

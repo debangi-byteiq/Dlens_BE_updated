@@ -1,0 +1,19 @@
+.form-container .ant-form-item .ant-form-item-label > label::after {
+  content: none !important;
+}
+.form-container .ant-col.ant-col-8.ant-form-item-label {
+  text-align: left;
+}
+.input {
+  background-color: #fff;
+  pointer-events: none;
+
+  &:hover {
+    border-color: #e5e7eb !important;
+  }
+
+  &:focus {
+    border-color: #e5e7eb !important;
+    box-shadow: none !important;
+  }
+}
