@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+Downloads/
+uploaded_files/
+tst.ipynb
+a.ipynb
+env/

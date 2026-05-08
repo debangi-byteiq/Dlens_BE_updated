@@ -1,0 +1,147 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DB}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      dq-network:
+        aliases:
+          - mongodb
+    healthcheck:
+      test: ["CMD", "mongosh", "--username", "${MONGO_USER}", "--password", "${MONGO_PASSWORD}", "--authenticationDatabase", "admin", "--eval", "db.runCommand({ ping: 1 })"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGO_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGO_PASSWORD}
+      ME_CONFIG_MONGODB_URL: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/${MONGO_DB}?authSource=admin
+    networks:
+      - dq-network
+    depends_on:
+      - mongodb
+  postgres:
+    image: postgres:17.1
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      dq-network:
+        aliases:
+          - postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+  postgres-init:
+    image: postgres:17.1
+    container_name: postgres-init
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGPASSWORD: ${DB_PASSWORD}
+    restart: "no"
+    command: >
+      bash -c "for i in {1..10}; do
+        psql -h postgres -U ${DB_USER} -tc \"SELECT 1 FROM pg_database WHERE datname = '${SQLALCHEMY_DATABASE}'\" | grep -q 1 ||
+        psql -h postgres -U ${DB_USER} -c \"CREATE DATABASE ${SQLALCHEMY_DATABASE} OWNER ${DB_USER};\" && exit 0;
+        echo 'Waiting for postgres...'; sleep 5;
+      done; echo 'Failed to connect to postgres'; exit 1;"    
+    networks:
+      - dq-network
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - dq-network
+    depends_on:
+      - postgres
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dq-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=${DB_PORT}
+      - UPLOAD_DIRECTORY=/app/uploaded_files/excel
+      - MONGO_CRED=mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/${MONGO_DB}?authSource=admin
+      # - MAIL_HOST=mailpit
+      - MAIL_PORT=${MAIL_PORT}
+      - MAIL_USE_TLS=${MAIL_USE_TLS}
+      - MAIL_USE_SSL=${MAIL_USE_SSL}
+      - MAIL_USERNAME=${MAIL_USERNAME}
+      - MAIL_PASSWORD=${MAIL_PASSWORD}
+      - SQLALCHEMY_DATABASE=${SQLALCHEMY_DATABASE}
+      - SQLALCHEMY_DATABASE_URL=${SQLALCHEMY_DATABASE_URL}
+    volumes:
+      - ./uploaded_files:/app/uploaded_files
+    networks:
+      - dq-network
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      postgres-init:
+        condition: service_completed_successfully
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+        reservations:
+          memory: 4G
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: mailpit
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - dq-network
+        
+networks:
+  dq-network:
+    driver: bridge
+volumes:
+  mongodb_data:
+  postgres_data:
+  pgadmin_data:
